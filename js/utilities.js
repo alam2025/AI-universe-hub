@@ -96,26 +96,43 @@ const displayDetails = data => {
       const pricingContainer = document.getElementById('pricing');
       pricingContainer.innerHTML = '';
 
-      data.pricing.forEach(p => {
+      data.pricing ? data.pricing.forEach(p => {
+
 
             pricingContainer.innerHTML += `
             <div class=" bg-white p-3 rounded-3 ">
-                ${p.price != '0' ? p.price : "Free of Cost/"}
+               <p> ${p.price != '0' ? p.price : "Free of Cost/"}</p>
                 <h5 class="fw-semibold "> ${p.plan}</h5>
                 
              </div>
             `
-
-      })
+            }) : pricingContainer.innerHTML += `
+            <div class=" bg-white p-3 rounded-3 text-danger text-center">
+            <h4 class="">Free OF Cost </h4>  
+            </div>
+            `;
 
       // fature items add in modal 
       const faturesItemContainer = document.getElementById('fatures-item');
       faturesItemContainer.innerHTML = '';
+
       for (const key in data.features) {
             faturesItemContainer.innerHTML += `
-      <li>${data.features ? data.features[key].feature_name : 'No features Found'} </li>
-      `
+            <li> ${ data.features ? data.features[key].feature_name : 'No features Found' } </li >
+            `
+       
       }
-      
+
+      // integration secton 
+      const integeationContainer= document.getElementById('integration-section');
+      data.integrations.forEach(item=>{
+            integeationContainer.innerHTML += `
+            < li > </li >
+                  `
+            console.log(item);
+      })
+
+      console.log(data.integrations?data.integrations:'No data found');
+
 
 }
