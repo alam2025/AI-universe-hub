@@ -25,20 +25,29 @@ const displayData = items => {
                                           <h5 class="card-title fw-semibold">Features</h5>
                                           <ol id="${item.id}"> </ol>
                                     </div>
-                                    <div class="card-footer">
-                                          <h4 class="fw-bold">${item.name} </h4>
+                                    <div class="card-footer d-flex">
+                                          <div>
+                                                <h4 class="fw-bold">${item.name} </h4>
+                                                <div class="d-flex gap-2 align-items-center"><i class="fa-regular fa-calendar-days"></i>${item.published_in}</div>
+                                          </div>
+                                          <div>
+                                                <button>fd </button>
+                                          </div>
                                     </div>
                         </div>
                   </div>
             `
 
             itemsContainer.appendChild(div);
+
+            // load features 
             loadFeatures(item.features, item.id);
       }
       
 
 }
 
+// load features 
 const loadFeatures = (features, id) => {
       
 
