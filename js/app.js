@@ -7,12 +7,10 @@ const loadData = async () => {
 
 //display all data
 const displayData = items => {
-      // console.log(items);
       const itemsContainer = document.getElementById('items-container');
-      // console.log(items);
-
-      for (const item of items) {
-            // console.log(item);
+      items= items.slice(0,6);
+      
+      items.forEach(item=>{
             const div = document.createElement('div');
 
             div.innerHTML = `
@@ -31,7 +29,7 @@ const displayData = items => {
                                                 <div class="d-flex gap-2 align-items-center"><i class="fa-regular fa-calendar-days"></i>${item.published_in}</div>
                                           </div>
                                           <div>
-                                                <button class="rounded-circle border-0 p-3 text-danger bg-danger-subtle"><i class="fa-solid fa-arrow-right"></i></button>
+                                                <button class="rounded-circle border-0 p-3 text-danger bg-danger-subtle details"><i class="fa-solid fa-arrow-right"></i></button>
                                           </div>
                                     </div>
                         </div>
@@ -42,9 +40,8 @@ const displayData = items => {
 
             // load features 
             loadFeatures(item.features, item.id);
-      }
-      
-
+      })
+    
 }
 
 // load features 
