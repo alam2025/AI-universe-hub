@@ -24,4 +24,3 @@ const loadDetails= async(id)=>{
       displayDetails(data.data);
 }
 
-loadData(6);

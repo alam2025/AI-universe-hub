@@ -10,7 +10,7 @@ const displayData = (items, itemNumber) => {
       else if (items.length > 6) {
             btnSeeMore.classList.add('d-none');
       }
-      console.log(items);
+      
       
 //  sort by date 
       document.getElementById('sort-by-date').addEventListener('click', function () {
@@ -62,47 +62,6 @@ const displayData = (items, itemNumber) => {
 
 }
 
-const uploadDataIntoWindow = items => {
-
-
-      // items.forEach(item => {
-      //       const itemsContainer = document.getElementById('items-container');
-      //       const div = document.createElement('div');
-      //       // console.log(item.description?item.description:`${item.name } helps in our many sectors. Today it is useful for us`);
-      //       div.innerHTML = `
-                        
-
-      //             <div class="col card-hover">
-      //                   <div class="card h-100">
-      //                         <img src=${item.image} class="card-img-top p-2 card-img" alt="...">
-      //                               <div class="card-body">
-      //                                     <h5 class="card-title fw-semibold">Features</h5>
-      //                                     <ol id="${item.id}"> </ol>
-      //                               </div>
-      //                               <div class="card-footer d-flex justify-content-between align-items-center py-4">
-      //                                     <div>
-      //                                           <h4 class="fw-bold">${item.name} </h4>
-      //                                           <div class="d-flex gap-2 align-items-center"><i class="fa-regular fa-calendar-days"></i>${item.published_in}</div>
-      //                                     </div>
-      //                                     <div>
-      //                                           <button onclick="loadDetails('${item.id}')" class="rounded-circle border-0 p-3 text-danger bg-danger-subtle details" data-bs-toggle="modal" data-bs-target="#itemDetails"><i class="fa-solid fa-arrow-right"></i></button>
-      //                                     </div>
-      //                               </div>
-      //                   </div>
-      //             </div>
-
-                  
-      //       `
-
-
-
-
-      //       itemsContainer.appendChild(div);
-
-      //       // load features 
-      //       loadFeatures(item.features, item.id);
-      // });
-}
 
 // load features 
 const loadFeatures = (features, id) => {
@@ -145,6 +104,7 @@ const displayDetails = data => {
       image.appendChild(pic);
 
       const accuracy = document.getElementById('accuracy');
+      
       //      acuuracy set 
       if (data.accuracy.score * 100 === 0) {
             accuracy.classList.add('d-none');
@@ -152,12 +112,12 @@ const displayDetails = data => {
       else {
             accuracy.classList.remove('d-none');
       }
+
+      // pricing set 
       const pricingContainer = document.getElementById('pricing');
       pricingContainer.innerHTML = '';
 
       data.pricing ? data.pricing.forEach(p => {
-
-
             pricingContainer.innerHTML += `
             <div class=" bg-white p-3 rounded-3 ">
                <p> ${p.price != '0' ? p.price : "Free of Cost/"}</p>
