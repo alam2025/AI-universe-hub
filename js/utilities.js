@@ -90,13 +90,22 @@ const displayDetails = data => {
       const pic = document.createElement('div');
       pic.innerHTML = `
       <img src="${data.image_link[0]}" class="img-fluid rounded-3" alt="">
+      <div id="accuracy" class="d-none position-absolute top-0 end-0 mt-3 me-4 color-primary border-0 py-1 text-white fw-semibold px-3 rounded" ><span class="px-2"> ${data.accuracy.score * 100}%</span>accuracy</div>
       `
       image.appendChild(pic);
 
+      const accuracy=document.getElementById('accuracy');
+//      acuuracy set 
+      if(data.accuracy.score * 100 === 0){
+            accuracy.classList.add('d-none');
+      }
+      else{
+            accuracy.classList.remove('d-none');
+      }
       const pricingContainer = document.getElementById('pricing');
       pricingContainer.innerHTML = '';
 
-      data.pricing ? data.pricing.forEach(p => {
+      data.pricing ? data.pricing.forEach(p => { 
 
 
             pricingContainer.innerHTML += `
@@ -135,9 +144,13 @@ const displayDetails = data => {
       <h5 class="text-danger">No data Found </h5>
        `;
 
-//      console.log(data.input_output_examples[0].input);
-     console.log(data);
-     console.log(data.input_output_examples? data.input_output_examples[0]:'dfasf');
+
+      //  qustion add 
+      const questionSection = document.getElementById('question-section');
+      questionSection.innerHTML=`
+            <h4 class="fw-semibold mt-4 text-center">${data.input_output_examples? data.input_output_examples[0].input:'Can You give me any example ?'} </h4>
+            <p class="mt-4 text-center">${data.input_output_examples? data.input_output_examples[0].output:'No! Not Yet! Take a break!!!'}</p>
+      `
 
 
 }
