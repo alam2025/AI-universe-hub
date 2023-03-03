@@ -1,5 +1,6 @@
 // load card 
 const loadData = async (itemNumber) => {
+     
       const url = `https://openapi.programming-hero.com/api/ai/tools`;
       const res = await fetch(url);
       const data = await res.json();
@@ -22,3 +23,5 @@ const loadDetails= async(id)=>{
       const data= await res.json();
       displayDetails(data.data);
 }
+
+loadData(6);
