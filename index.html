@@ -13,21 +13,40 @@
             button {
                   background-color: #ed5c5c !important;
             }
-            .card-img{
+
+            .card-img {
                   border-radius: 15px !important;
                   height: 200px;
             }
-            .card-footer{
+
+            .card-footer {
                   background-color: transparent;
             }
-            .details:hover{
+
+            .details:hover {
                   background-color: #ed5c5c !important;
-                  color: #000 !important; 
+                  color: #000 !important;
+            }
+
+            .card-hover:hover {
+                  outline: 2px solid rgba(59, 59, 226, 0.525);
+                  border-radius: 5px;
+
+            }
+
+            .modal {
+                  --bs-modal-header-border-color: none;
+                  --bs-modal-footer-border-color: none;
+
+            }
+
+            .modal-dialog {
+                  max-width: 70% !important;
             }
       </style>
 </head>
 
-<body onload="loadData()">
+<body onload="loadData(6)">
       <!-- header  -->
       <header class="container my-5">
             <h2 class="text-center fw-semibold">AI UNIVERSE HUB</h2>
@@ -39,6 +58,14 @@
 
       <!-- main  -->
       <main class="container">
+            <!-- spinner  -->
+            <section id="loader" style="height: 250px;" class="d-flex justify-content-center align-items-center d-none">
+                  <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                  </div>
+            </section>
+            <!-- spinner  -->
+
             <!-- features section  -->
             <section class="features">
 
@@ -49,9 +76,60 @@
             <!-- features section  -->
 
             <!-- see more button  -->
-            <div class="text-center my-3">
-                  <button type="button" class="btn btn-danger px-4 fw-semibold">See More</button>
+            <div class="text-center my-3 ">
+                  <button id="btn-see-more" type="button" class="btn btn-danger px-4 fw-semibold d-none">See More <i
+                              class="fa-solid fa-arrow-right"></i></button>
             </div>
+
+            <!-- modal  section  -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="itemDetails" tabindex="-1" aria-labelledby="itemDetailsLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog ">
+                        <div id="details-info" class="modal-content">
+                              <div class="modal-header">
+                                    <button type="button"
+                                          class="btn-close position-absolute top-0 end-0 z-3 btn-danger opacity-100 rounded-circle"
+                                          data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body row row-cols-1 row-cols-md-1 row-cols-lg-2  g-4 p-5">
+                                    <div class="col bg-body-tertiary rounded-3 p-3">
+                                          <h5 id="description"></h5>
+                                          <div id="pricing" class="d-flex justify-centent-around gap-2 align-items-center">
+                                               <!-- pricing div  -->
+                                          </div>
+
+                                          <!-- features and integrations  -->
+                                          <div class="row row-cols-2 mt-3 g-3">
+                                                <div class="col">
+                                                      <h5 class="fw-semibold">Features</h5>
+                                                      <ul id="fatures-item">
+                                                            <!-- features  -->
+                                                      </ul>
+                                                </div>
+                                                <div class="col">
+                                                      <h5 class="fw-semibold">Integrations</h5>
+                                                </div>
+                                          </div>
+
+                                    </div>
+                                    <div id="" class="col">
+                                          <div id="image">
+
+
+                                          </div>
+                                    </div>
+
+                              </div>
+                              <div class="modal-footer">
+
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <!-- modal  section  -->
       </main>
       <!-- main  -->
 

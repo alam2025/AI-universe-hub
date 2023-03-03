@@ -1,65 +1,24 @@
-const loadData = async () => {
+// load card 
+const loadData = async (itemNumber) => {
       const url = `https://openapi.programming-hero.com/api/ai/tools`;
       const res = await fetch(url);
       const data = await res.json();
-      displayData(data.data.tools);
+      displayData(data.data.tools, itemNumber);
 }
 
-//display all data
-const displayData = items => {
+
+ //button see more
+ document.getElementById('btn-see-more').addEventListener('click',function(){
       const itemsContainer = document.getElementById('items-container');
-      items= items.slice(0,6);
-      
-      items.forEach(item=>{
-            const div = document.createElement('div');
+      itemsContainer.innerHTML=''
+      loadData();
+ })
 
-            div.innerHTML = `
-                        
 
-                        <div class="col">
-                        <div class="card h-100">
-                              <img src=${item.image} class="card-img-top p-2 card-img" alt="...">
-                                    <div class="card-body">
-                                          <h5 class="card-title fw-semibold">Features</h5>
-                                          <ol id="${item.id}"> </ol>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center py-4">
-                                          <div>
-                                                <h4 class="fw-bold">${item.name} </h4>
-                                                <div class="d-flex gap-2 align-items-center"><i class="fa-regular fa-calendar-days"></i>${item.published_in}</div>
-                                          </div>
-                                          <div>
-                                                <button class="rounded-circle border-0 p-3 text-danger bg-danger-subtle details"><i class="fa-solid fa-arrow-right"></i></button>
-                                          </div>
-                                    </div>
-                        </div>
-                  </div>
-            `
-
-            itemsContainer.appendChild(div);
-
-            // load features 
-            loadFeatures(item.features, item.id);
-      })
-    
+// load item details 
+const loadDetails= async(id)=>{
+      const url=` https://openapi.programming-hero.com/api/ai/tool/${id}`;
+      const res= await fetch(url);
+      const data= await res.json();
+      displayDetails(data.data);
 }
-
-// load features 
-const loadFeatures = (features, id) => {
-      
-
-      const featuresContainer = document.getElementById(id);
-
-      features.forEach(feature => {
-            featuresContainer.innerHTML += `
-            
-            <li>${feature ? feature : 'No Data Found'} </li>
-            `
-      })
-
-
-
-}
-
-
-
