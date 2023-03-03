@@ -125,14 +125,19 @@ const displayDetails = data => {
 
       // integration secton 
       const integeationContainer= document.getElementById('integration-section');
-      data.integrations.forEach(item=>{
+      integeationContainer.innerHTML='';
+      data.integrations?data.integrations.forEach(item=>{
             integeationContainer.innerHTML += `
-            < li > </li >
-                  `
-            console.log(item);
-      })
+            <li>${item} </li>
+             `;
+            
+      }):integeationContainer.innerHTML += `
+      <h5 class="text-danger">No data Found </h5>
+       `;
 
-      console.log(data.integrations?data.integrations:'No data found');
+//      console.log(data.input_output_examples[0].input);
+     console.log(data);
+     console.log(data.input_output_examples? data.input_output_examples[0]:'dfasf');
 
 
 }

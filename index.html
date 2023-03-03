@@ -42,6 +42,11 @@
 
             .modal-dialog {
                   max-width: 70% !important;
+                 
+            }
+            .details-container{
+                  background-color: #fef2f2 ;
+
             }
       </style>
 </head>
@@ -95,8 +100,8 @@
                                           data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body row row-cols-1 row-cols-md-1 row-cols-lg-2  g-4 p-5">
-                                    <div class="col bg-body-tertiary rounded-3 p-3">
-                                          <h5 id="description"></h5>
+                                    <div class="col details-container rounded-3 p-3 border border-danger">
+                                          <h5 id="description" class="fw-semibold lh-lg"></h5>
                                           <div id="pricing" class="d-flex justify-centent-around gap-2 align-items-center">
                                                <!-- pricing div  -->
                                           </div>
@@ -120,8 +125,7 @@
                                     </div>
                                     <div id="" class="col">
                                           <div id="image">
-
-
+                                                <!-- image here  -->
                                           </div>
                                     </div>
 
