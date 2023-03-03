@@ -12,7 +12,7 @@ const displayData = (items, itemNumber) => {
       }
       console.log(items);
       
-
+//  sort by date 
       document.getElementById('sort-by-date').addEventListener('click', function () {
             const newArray=items.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
             displayData(newArray);
