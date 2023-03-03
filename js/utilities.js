@@ -83,39 +83,39 @@ const dataLoader = isLoading => {
 
 //display details
 const displayDetails = data => {
-      document.getElementById('description').innerText= data.description?data.description:'No description';
+      document.getElementById('description').innerText = data.description ? data.description : 'No description';
 
-      const image= document.getElementById('image');
-      image.innerHTML='';
-      const pic= document.createElement('div');
-      pic.innerHTML=`
+      const image = document.getElementById('image');
+      image.innerHTML = '';
+      const pic = document.createElement('div');
+      pic.innerHTML = `
       <img src="${data.image_link[0]}" class="img-fluid rounded-3" alt="">
       `
       image.appendChild(pic);
-      
-      const pricingContainer= document.getElementById('pricing');
-      pricingContainer.innerHTML='';
-     
-      data.pricing.forEach(p=>{
 
-            pricingContainer.innerHTML +=`
+      const pricingContainer = document.getElementById('pricing');
+      pricingContainer.innerHTML = '';
+
+      data.pricing.forEach(p => {
+
+            pricingContainer.innerHTML += `
             <div class=" bg-white p-3 rounded-3 ">
-                ${ p.price !='0'?p.price:"Free of Cost/"}
+                ${p.price != '0' ? p.price : "Free of Cost/"}
                 <h5 class="fw-semibold "> ${p.plan}</h5>
                 
              </div>
             `
-            // console.log(p);
 
       })
 
-//      console.log(data.features);
-//      console.log(data.features);
-const faturesItemContainer = document.getElementById('fatures-item');
-     for(const key in data.features)
-     {
-      console.log(data.features[key].feature_name);
-     }
-//      console.log(data);
+      // fature items add in modal 
+      const faturesItemContainer = document.getElementById('fatures-item');
+      faturesItemContainer.innerHTML = '';
+      for (const key in data.features) {
+            faturesItemContainer.innerHTML += `
+      <li>${data.features ? data.features[key].feature_name : 'No features Found'} </li>
+      `
+      }
+      
 
 }
