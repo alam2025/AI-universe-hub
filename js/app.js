@@ -25,13 +25,13 @@ const displayData = items => {
                                           <h5 class="card-title fw-semibold">Features</h5>
                                           <ol id="${item.id}"> </ol>
                                     </div>
-                                    <div class="card-footer d-flex">
+                                    <div class="card-footer d-flex justify-content-between align-items-center py-4">
                                           <div>
                                                 <h4 class="fw-bold">${item.name} </h4>
                                                 <div class="d-flex gap-2 align-items-center"><i class="fa-regular fa-calendar-days"></i>${item.published_in}</div>
                                           </div>
                                           <div>
-                                                <button>fd </button>
+                                                <button class="rounded-circle border-0 p-3 text-danger bg-danger-subtle"><i class="fa-solid fa-arrow-right"></i></button>
                                           </div>
                                     </div>
                         </div>
