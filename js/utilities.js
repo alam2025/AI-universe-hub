@@ -127,7 +127,16 @@ const displayDetails = data => {
             `
       }) : pricingContainer.innerHTML += `
             <div class=" bg-white p-3 rounded-3 text-danger text-center">
-            <h4 class="">Free OF Cost </h4>  
+                  <p class="">Free OF Cost </p> 
+                  <h5 class="text-dark">Basic</h5> 
+            </div>
+            <div class=" bg-white p-3 rounded-3 text-danger text-center">
+                  <p class="">Free OF Cost </p>  
+                  <h5 class="text-dark">Pro</h5> 
+            </div>
+            <div class=" bg-white p-3 rounded-3 text-danger text-center">
+                  <p class="">Free OF Cost </p>  
+                  <h5 class="text-dark">Enterprice</h5> 
             </div>
             `;
 
